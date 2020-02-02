@@ -1,8 +1,6 @@
 package com.caching.proj.user;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,9 @@ public class UserController {
     @GetMapping(value = "/all")
     public List<User> getAllUsers(){
         return userService.findAll();
+    }
+    @PutMapping(value = "/user")
+    public User updateUser(@RequestBody User user){
+        return userService.updateUser(user);
     }
 }
